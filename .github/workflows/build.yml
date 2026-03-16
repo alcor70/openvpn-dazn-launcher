@@ -24,7 +24,9 @@ jobs:
         cache: gradle
 
     - name: Setup Gradle
-      uses: gradle/gradle-build-action@v2
+      uses: gradle/actions/setup-gradle@v3
+      with:
+        gradle-version: '8.4'
 
     - name: Build with Gradle
       run: gradle assembleRelease
@@ -34,3 +36,4 @@ jobs:
       with:
         name: openvpn2dazn-launcher-apk
         path: app/build/outputs/apk/release/app-release-unsigned.apk
+
